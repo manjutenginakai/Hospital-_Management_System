@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Select_Role</title>
+</head>
+<style>
+     /* table{
+            border: black solid;
+            height: 250px;
+            width: 250px;
+
+        } */
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(15, 15, 59);
+        }
+        #c{
+            position: relative;
+            left: 40px;
+            top:10px ;
+        }
+        #sm{
+            position: relative;
+            left: 150px;
+            top: -13px;
+
+        }
+        #b{
+            position: relative;
+            left: 40px; 
+        }
+
+</style>
+<body>
+<form action="selectRole" method="post">
+
+<fieldset  style="width: 250px; height: 200px; color: blue; background-color: rgb(164, 153, 173);">
+    <legend> <h1>Select Role</h1></legend>
+    <table>
+       
+        <tr>
+            <th>
+                <input type="radio" name="role" value="doctor" id="d">
+            </th>
+            <th><label for="d">Doctor</label></th>
+        </tr>
+        <tr>
+            <th>
+                <input type="radio" name="role" value="staff" id="s">
+            </th>
+            <th><label for="s">Staff</label></th>
+        </tr>
+        <tr id="c">
+            <th>
+                <button type="reset">Cancel</button>
+            </th>
+        </tr>
+        <tr id="sm">
+            <th>
+                <button type="submit">Submit</button>
+            </th>
+        </tr>
+        <tr id="b">
+            <th>
+               <a href="Login.html"> <button type="button">Back</button></a>
+            </th>
+        </tr>
+    </table>
+</fieldset>
+</form>
+</body>
+</html>

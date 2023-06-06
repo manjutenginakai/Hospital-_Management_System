@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Doctor Signup</title>
+</head>
+<style>
+
+    body{
+        background-image: linear-gradient(to left, blue,rgb(0, 5, 19));
+     
+    }
+     table{
+   
+    height: 450px;
+    width: 650px;
+} 
+div{
+    position: relative;
+    top: 100px;
+    left: 200px;
+    line-height: 10px;
+    color: white;
+}
+button[type]{
+position: relative;
+left: 60px;
+height: 22px;
+width: 80px;
+margin: 5px;
+border-radius: 10px;
+background-color: rgb(250, 250, 41);
+}
+label{
+    position: relative;
+    left: 50px;
+    color: antiquewhite;
+}
+input{
+    position: relative;
+    left: 60px;
+    border: 3px solid yellow;
+    border-radius: 10px;
+}
+legend{
+
+    background: linear-gradient(90deg,red,rgb(4, 243, 16),rgb(224, 134, 149),rgb(31, 227, 253),rgb(252, 3, 231));
+    background-size: 400%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-weight: 500px;
+    word-spacing: 4px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+        animation: animate alternate 10s linear infinite;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 500%;
+    }
+}
+#fe{
+    position: relative;
+    left: 75px;
+    border: 3px solid yellow;
+    border-radius: 10px;
+}
+
+#b{
+    position: relative;
+left: 60px;
+height: 22px;
+width: 80px;
+margin: 5px;
+border-radius: 10px;
+background-color: rgb(250, 250, 41);
+}
+#h1{
+    position: relative;
+    left: 1020px;
+    bottom: 400px;
+}
+p{
+    position: relative;
+    left: 1030px;
+    bottom: 400px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aliceblue;
+   
+}
+</style>
+<body>
+    <div>
+    <form action="Doctor_Signup" method="post">
+     <fieldset style="height: 500px; width:700px;" >
+        <legend><h1> Doctor details</h1></legend>
+        <table>
+         
+            <tr id="n">
+                <th>
+                    <label for="name">Name :</label>
+                </th>
+                <th><input type="text" placeholder="Name" name="name" ></th>
+            </tr>
+            <tr >
+            <th>
+                <label for="email">E-mail :</label>
+            </th>
+            <th>
+                <input type="text" placeholder="E-mail" name="email" >
+            </th>
+        </tr>
+        <tr >
+        <th>
+            <label for="password">Password :</label>
+        </th>
+        <th>
+            <input type="password" placeholder="Password" name="password" >
+        </th>
+        </tr>
+        <tr >
+            <th>
+                <label for="m">Mobile :</label>
+            </th>
+            <th>
+                <input type="number" name="mobile" placeholder="Mobile">
+            </th>
+        </tr> 
+        <tr >
+            <th>
+                <label for="q">Qualification :</label>
+            </th>
+            <th>
+                <input type="text" name="qualification" placeholder="Qualification">
+            </th>
+        </tr>
+        <tr >
+            <th>
+                <label for="specialisation" >Specialization :</label>
+            </th>
+            <th>
+                <input type="text" name="specialisation" >
+            </th>
+        </tr>
+            <tr>
+                <th>
+                    <label for="date" >Date of Birth :</label>
+                </th>
+                <th>
+                    <input type="date" name="dob" >
+                </th>
+            </tr >
+            <tr>
+                <th>
+                    <label for="gender">Gender :</label>
+                </th>
+                <th>
+                    <input type="radio" name="gender" value="male">Male
+                </th>
+                <th>
+                    <input type="radio" name="gender" value="female" id="fe"> Female
+                </th>
+            </tr>
+ 
+            <tr >
+                <th>
+                    <button type="reset">Cancel</button>
+                </th>
+                <th>
+                     <button type="submit">Save</button>
+                </th>
+            </tr>
+            <tr >
+                <th>
+                    <a href="Select_Role.html" ><button id="b">Back</button></a>
+                </th>
+            </tr>
+        
+        </table>
+     </fieldset>
+        </form>
+        </div>
+        <h1 id="h1">Who is Doctor ?</h1>
+        <p>Someone who is experienced and <br> certified to practice medicine to <br> help maintain or restore physical <br> and mental health.</p>
+</body>
+</html>

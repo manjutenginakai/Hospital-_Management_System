@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Staff Signup</title>
+</head>
+<style>
+    /* body{
+        background-color: blueviolet;
+        background-size: cover;
+    } */
+       /* table{
+            border: black solid;
+            height: 350px;
+            width: 450px;
+
+        } */
+        button{
+            position: relative;
+            top: 55px;
+            left: 25px;
+        }
+        #g{
+            position: relative;
+            top: 44px;  
+        }
+        #d{
+            position: relative;
+            top: 37px;
+        }
+        #m{
+            position: relative;
+            top: 28px;
+        }
+        #p{
+            position: relative;
+            top: 20px;
+        }
+        #e{
+            position: relative;
+            top: 10px ;
+        }
+        #b{
+            position: relative;
+            top: 20px;
+        }
+
+</style>
+<body>
+
+<fieldset style="height: 350px; width: 350px; color: rgb(0, 191, 255);">
+    <legend> <h1>Staff details</h1></legend>
+    <form action="staff_signup" method="post">
+    <table>
+       
+        <tr>
+            <th>
+                <label for="name">Name :</label>
+            </th>
+            <th><input type="text" placeholder="Name" name="name" ></th>
+        </tr>
+        <tr id="e">
+         <th>
+            <label for="email">E-mail :</label>
+         </th>
+        <th>
+            <input type="text" placeholder="E-mail" name="email" >
+        </th>
+    </tr>
+    <tr id="p">
+    <th>
+        <label for="password">Password :</label>
+    </th>
+    <th>
+        <input type="password" placeholder="Password" name="password" >
+    </th>
+    </tr>
+    <tr id="m">
+        <th>
+            <label for="m">Mobile :</label>
+        </th>
+        <th>
+            <input type="tel" pattern="{0-9}[10]" name="mobile" placeholder="Mobile">
+        </th>
+    </tr>
+        <tr id="d">
+            <th>
+                <label for="date" >Date of Birth :</label>
+            </th>
+            <th>
+                <input type="date" name="dob" >
+            </th>
+        </tr>
+        <tr id="g">
+            <th>
+                <label for="gender">Gender</label>
+            </th>
+            <th>
+                <input type="radio" name="gender" value="male">Male
+            </th>
+            <th>
+                <input type="radio" name="gender" value="female">Female
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <button type="reset">Cancel</button>
+            </th>
+            <th>
+                 <button type="submit">Save</button>
+            </th>
+        </tr>
+     
+    
+    </table>
+
+</form>
+ <a href="Select_Role.html" id="b"><button>Back</button>
+</fieldset>
+</body>
+</html>
