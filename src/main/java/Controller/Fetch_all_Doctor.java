@@ -10,22 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Dao.My_Dao;
-import Dto.Staff;
-
-@WebServlet("/Fetch_all_staff")
-public class Fetch_All_Staff extends HttpServlet {
+import Dto.Doctor;
+@WebServlet("/Fetch_all_Doctor")
+public class Fetch_all_Doctor extends HttpServlet{
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	My_Dao dao=new My_Dao();
-	List<Staff> list=dao.fetchAllStaff();
+	List<Doctor> list=dao.fetchAllDoctor();
 	if(list.isEmpty()){
 		resp.getWriter().print("<h1 style='color=red'>No staff is signed up yet </h1>");
 		req.getRequestDispatcher("Admin_Home.html").include(req, resp);
 	}else{
 		req.setAttribute("list", list);
-		req.getRequestDispatcher("Approve_Staff.jsp").include(req, resp);
-	}
-
+		req.getRequestDispatcher("Approval_Doctor.jsp").include(req, resp);
 	}
 }
-
+}

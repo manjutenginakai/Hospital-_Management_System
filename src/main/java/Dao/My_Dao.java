@@ -108,7 +108,7 @@ public class My_Dao {
 		return manager.createQuery("select x from Doctor x").getResultList();
 	}
 
-	public List<Doctor> fetchAllStaff()
+	public List<Staff> fetchAllStaff()
 	{
 		return manager.createQuery("select x from Staff x").getResultList();
 	}
