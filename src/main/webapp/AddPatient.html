@@ -7,7 +7,7 @@
     <title>AddPatient</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="AddPatient" method="post" enctype="multipart/form-data">
 <table>
     <tr>
         <th>
@@ -22,7 +22,7 @@
             <label for="mobile">Mobile</label>
         </th>
         <th>
-            <input type="number" id="mobile" name="mobile">
+            <input type="tel" pattern="{0-9}[10]" id="mobile" name="mobile">
         </th>
     </tr>
     <tr>

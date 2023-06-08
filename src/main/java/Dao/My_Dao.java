@@ -8,6 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import Dto.Doctor;
+import Dto.Patient;
 import Dto.Staff;
 
 public class My_Dao {
@@ -111,5 +112,13 @@ public class My_Dao {
 	public List<Staff> fetchAllStaff()
 	{
 		return manager.createQuery("select x from Staff x").getResultList();
+	}
+	
+	public void savePatient(Patient patient) {
+		// TODO Auto-generated method stub
+		transaction.begin();
+		manager.persist(patient);
+		transaction.commit();
+
 	}
 }
