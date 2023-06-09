@@ -35,6 +35,7 @@
 		<%
 			}
 		%>
-	</table>
+	</table><br>
+	<a href="Admin_Home.html">Back</a>
 </body>
 </html>

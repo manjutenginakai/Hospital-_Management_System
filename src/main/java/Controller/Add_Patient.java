@@ -19,29 +19,37 @@ import Dto.Patient;
 @WebServlet("/AddPatient")
 @MultipartConfig
 public class Add_Patient extends HttpServlet {
-@Override
-protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-String name=req.getParameter("name");
-long mobile=Long.parseLong(req.getParameter("mobile"));
-Date Dob=Date.valueOf(req.getParameter("dob"));
-int age=Period.between(Dob.toLocalDate(), LocalDate.now()).getYears();
-Part picture=req.getPart("picture");
-byte[] image=new byte[picture.getInputStream().available()];
-picture.getInputStream().read(image);
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String name = req.getParameter("name");
+		long mobile = Long.parseLong(req.getParameter("mobile"));
+		Date Dob = Date.valueOf(req.getParameter("dob"));
+		int age = Period.between(Dob.toLocalDate(), LocalDate.now()).getYears();
+		Part picture = req.getPart("picture");
+		byte[] image = new byte[picture.getInputStream().available()];
+		picture.getInputStream().read(image);
 
+		My_Dao dao = new My_Dao();
+		
+		Patient patient1=dao.fetchPatient(mobile);
+		if(patient1==null)
+		{
+		Patient patient = new Patient();
+		patient.setName(name);
+		patient.setAge(age);
+		patient.setDob(Dob);
+		patient.setMobile(mobile);
+		patient.setPicture(image);
 
-Patient patient=new Patient();
-patient.setName(name);
-patient.setAge(age);
-patient.setDob(Dob);
-patient.setMobile(mobile);
-patient.setPicture(image);
+	
+		dao.savePatient(patient);
 
-
-My_Dao dao=new My_Dao();
-dao.savePatient(patient);
-
-resp.getWriter().print("<h1>Added Patient</h1>");
-req.getRequestDispatcher("Staff_Home.html").include(req, resp);
-}
+		resp.getWriter().print("<h1 style='color:green'>Patient Data Added Successfully</h1>");
+		req.getRequestDispatcher("Staff_Home.html").include(req, resp);
+	}
+		else{
+			resp.getWriter().print("<h1 style='color:red'>Mobile number already exist</h1>");
+			req.getRequestDispatcher("Staff_Home.html").include(req, resp);
+		}
+	}
 }

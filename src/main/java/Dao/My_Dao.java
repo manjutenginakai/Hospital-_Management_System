@@ -30,6 +30,13 @@ public class My_Dao {
 		transaction.commit();
 
 	}
+	public void savePatient(Patient patient) {
+		// TODO Auto-generated method stub
+		transaction.begin();
+		manager.persist(patient);
+		transaction.commit();
+
+	}
 
 	public Staff fetchByMobile(long mobile) {
 		List<Staff> list = manager.createQuery("select x from Staff x where mobile=?1").setParameter(1, mobile)
@@ -70,6 +77,16 @@ public class My_Dao {
 			return list.get(0);
 		}
 	}
+	
+	public Patient fetchPatient(long mobile) {
+		List<Patient> list = manager.createQuery("select x from Patient x where mobile=?1").setParameter(1, mobile)
+				.getResultList();
+		if (list.isEmpty()) {
+			return null;
+		} else {
+			return list.get(0);
+		}
+	}
 
 	public Staff fetchStaff(int id) {
 		return manager.find(Staff.class, id);
@@ -103,6 +120,12 @@ public class My_Dao {
 		manager.merge(staff);
 		transaction.commit();
 	}
+	public void update(Patient patient) {
+		// TODO Auto-generated method stub
+		transaction.begin();
+		manager.merge(patient);
+		transaction.commit();
+	}
 	
 	public List<Doctor> fetchAllDoctor()
 	{
@@ -114,11 +137,9 @@ public class My_Dao {
 		return manager.createQuery("select x from Staff x").getResultList();
 	}
 	
-	public void savePatient(Patient patient) {
-		// TODO Auto-generated method stub
-		transaction.begin();
-		manager.persist(patient);
-		transaction.commit();
-
+	public List<Patient> fetchAllPatient()
+	{
+		return manager.createQuery("select x from Patient x").getResultList();
 	}
+	
 }
