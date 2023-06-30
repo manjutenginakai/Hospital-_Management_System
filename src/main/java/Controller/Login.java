@@ -26,47 +26,40 @@ public class Login extends HttpServlet {
 		if (staff == null && doctor == null && id != 999999) {
 			resp.getWriter().print("<h1 style='color:red'>Incorrect Id</h1>");
 			req.getRequestDispatcher("Login.html").include(req, resp);
-		} 
-		else 
-		{
-			if (staff != null) 
-			{
+		} else {
+			if (staff != null) {
 				if (staff.getPassword().equals(password)) {
-					if(staff.isStatus()){
-					resp.getWriter().print("<h1 style='color:green'>Login success</h1>");
-					req.getRequestDispatcher("Staff_Home.html").include(req, resp);
-				}
-					else{
+					if (staff.isStatus()) {
+						req.getSession().setAttribute("staff", staff);
+						resp.getWriter().print("<h1 style='color:green'>Login success</h1>");
+						req.getRequestDispatcher("Staff_Home.html").include(req, resp);
+					} else {
 						resp.getWriter().print("<h1 style='color:red'>Wait for Admin Approval</h1>");
 						req.getRequestDispatcher("Login.html").include(req, resp);
 					}
-				}
-				else {
+				} else {
 					resp.getWriter().print("<h1 style='color:red'>Incorrect Password</h1>");
 					req.getRequestDispatcher("Login.html").include(req, resp);
 				}
 			}
-			if (doctor != null) 
-			{
+			if (doctor != null) {
 				if (doctor.getPassword().equals(password)) {
-					if(doctor.isStatus())
-					{
-					resp.getWriter().print("<h1 style='color:green'>Login success</h1>");
-					req.getRequestDispatcher("Doctor_Home.html").include(req, resp);
-				}
-					else{
+					if (doctor.isStatus()) {
+						req.getSession().setAttribute("doctor", doctor);
+						resp.getWriter().print("<h1 style='color:green'>Login success</h1>");
+						req.getRequestDispatcher("Doctor_Home.html").include(req, resp);
+					} else {
 						resp.getWriter().print("<h1 style='color:red'>Wait for Admin Approval</h1>");
 						req.getRequestDispatcher("Login.html").include(req, resp);
 					}
-				}
-				else {
+				} else {
 					resp.getWriter().print("<h1 style='color:red'>Incorrect Password</h1>");
 					req.getRequestDispatcher("Login.html").include(req, resp);
 				}
 			}
-			if (id == 999999) 
-			{
+			if (id == 999999) {
 				if ("999999".equals(password)) {
+					req.getSession().setAttribute("admin", "admin");
 					resp.getWriter().print("<h1 style='color:green'>Login success</h1>");
 					req.getRequestDispatcher("Admin_Home.html").include(req, resp);
 				} else {

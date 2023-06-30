@@ -16,10 +16,12 @@ import Dto.Staff;
 public class Fetch_All_Staff extends HttpServlet {
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	if(req.getSession().getAttribute("admin")!=null)
+	{
 	My_Dao dao=new My_Dao();
 	List<Staff> list=dao.fetchAllStaff();
 	if(list.isEmpty()){
-		resp.getWriter().print("<h1 style='color=red'>No staff is signed up yet </h1>");
+		resp.getWriter().print("<h1 style='color:red'>No staff is signed up yet </h1>");
 		req.getRequestDispatcher("Admin_Home.html").include(req, resp);
 	}else{
 		req.setAttribute("list", list);
@@ -27,5 +29,10 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 	}
 
 	}
+	else{
+		resp.getWriter().print("<h1 style='color:red'>Session Expired,Login again</h1>");
+		req.getRequestDispatcher("Login.html").include(req, resp);
+	}
+}
 }
 
