@@ -33,7 +33,7 @@
 	<form action="Book_Appointment" method="post">
 		Patient Id: <input type="text" name="pid" value="<%=pid%>"
 			readonly="readonly"><br> Patient Name: <input
-			type="text" name="pname" value="<%=patient.getName()%>"
+			type="text" name="pname" value="<%=patient.getName() %>"
 			readonly="readonly"><br> Staff Name: <input type="text"
 			name="staffname" value="<%=staff.getName()%>" readonly="readonly"><br>
 		Problem:<input type="text" name="problem"><br> Select
